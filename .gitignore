@@ -1,0 +1,12 @@
+# Copied from phischl/paddock-mdm by scripts/sync-docs.sh; never edit or commit them here.
+/docs/operations/
+/docs/compliance/
+/docs/adr/
+/docs/assets/
+/docs/architecture.md
+/docs/changelog.md
+
+# Build output and local tooling
+/site/
+/.venv/
+__pycache__/
