@@ -22,7 +22,8 @@ takes it from `phischl/paddock-mdm` at a ref (default `main`) at build time:
 are gitignored. Fix documentation in the main repository, never here.
 
 This repository holds only the site itself: `mkdocs.yml` (theme and navigation), `docs/index.md` (landing page),
-`docs/getting-started.md` and `docs/stylesheets/extra.css` (brand colours from the logo).
+`docs/getting-started.md`, `docs/stylesheets/extra.css` (brand colours from the logo, contrast fixes) and
+`docs/javascripts/a11y.js` (gives the theme's search dialog an accessible name).
 
 A new document in the main repository needs an entry in the `nav` of `mkdocs.yml`: the strict build fails on a
 document that is not in the navigation, so nothing is silently missing from the site.
