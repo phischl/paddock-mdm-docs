@@ -1,0 +1,132 @@
+/* Brand colours from the Paddock logo (docs/assets/logo/*.svg): the green gradient #69b94f → #35995b → #00734e and
+   the ink #0b1b28. */
+:root {
+  --pd-green-light: #69b94f;
+  --pd-green: #35995b;
+  --pd-green-dark: #00734e;
+  --pd-ink: #0b1b28;
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--pd-green-dark);
+  --md-primary-fg-color--light: var(--pd-green);
+  --md-primary-fg-color--dark: #005a3d;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: #ffffffb3;
+  --md-accent-fg-color: #005a3d;
+  --md-accent-fg-color--transparent: #00734e1a;
+  --md-typeset-a-color: var(--pd-green-dark);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 205;
+  --md-primary-fg-color: var(--pd-ink);
+  --md-primary-fg-color--light: #1c3346;
+  --md-primary-fg-color--dark: #050d14;
+  --md-primary-bg-color: #f7fafc;
+  --md-primary-bg-color--light: #f7fafcb3;
+  --md-accent-fg-color: var(--pd-green-light);
+  --md-accent-fg-color--transparent: #69b94f1a;
+  --md-typeset-a-color: var(--pd-green-light);
+}
+
+/* The primary button keeps readable text in both schemes. */
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  background-color: var(--pd-green-light);
+  border-color: var(--pd-green-light);
+  color: var(--pd-ink);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover,
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:focus {
+  background-color: #84c96e;
+  border-color: #84c96e;
+  color: var(--pd-ink);
+}
+
+/* Landing page */
+.pd-hero {
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+}
+
+.md-typeset .pd-hero__logo {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+.md-typeset .pd-hero__pitch {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  max-width: 36rem;
+  margin: 1rem auto 1.5rem;
+}
+
+.md-typeset .pd-hero .md-button {
+  margin: 0.25rem;
+}
+
+.md-typeset .pd-hero__title {
+  margin: 0;
+}
+
+.md-typeset .pd-features {
+  margin-top: 2rem;
+}
+
+/* Four feature blocks: two by two on wide screens instead of three plus one. */
+@media screen and (min-width: 60em) {
+  .md-typeset .grid.pd-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.md-typeset .pd-shots figure {
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+
+.md-typeset .pd-shots img {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+  box-shadow: var(--md-shadow-z1);
+}
+
+/* The wide reference tables (audit codes, third-party licenses) use a smaller font. */
+.md-typeset table:not([class]) {
+  font-size: 0.7rem;
+}
+
+/* Contrast (WCAG AA): secondary text, code comments and variables, the footer and the navigation tabs. */
+[data-md-color-scheme="default"] {
+  --md-default-fg-color--light: #000000b3;
+  --md-code-hl-constant-color: #5a44c9;
+  --md-footer-fg-color--lighter: #ffffffb3;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-fg-color--light: hsla(var(--md-hue), 15%, 90%, 0.75);
+  --md-code-hl-constant-color: #ab9fea;
+  --md-footer-fg-color--lighter: #ffffffb3;
+}
+
+.md-tabs__link {
+  opacity: 0.9;
+}
+
+.md-tabs__item--active .md-tabs__link {
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* Links in running text are underlined, not told apart by colour alone. */
+.md-typeset :is(p, li, td, figcaption) a:not(.md-button):not(.headerlink) {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) {
+  color: var(--pd-green-light);
+  border-color: var(--pd-green-light);
+}

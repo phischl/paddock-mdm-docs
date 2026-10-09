@@ -1,0 +1,151 @@
+site_name: Paddock
+site_description: Open-source management for Linux workstations that keeps local administrator rights with their users.
+site_url: https://phischl.github.io/paddock-mdm-docs/
+copyright: Paddock is open source under the MIT license. Copyright &copy; 2026 phizzl.
+
+theme:
+  name: material
+  language: en
+  logo: assets/logo/paddock-symbol-dark.svg
+  favicon: assets/logo/paddock-favicon-small.svg
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to system preference
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/a11y.js
+
+# A footer link instead of repo_url: repo_url makes every page call the GitHub API from the visitor's browser.
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/phischl/paddock-mdm
+      name: Paddock on GitHub
+
+plugins:
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# A document added to the main repository without a nav entry fails the strict build, so it is never silently
+# missing from the site.
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+  links:
+    not_found: warn
+    unrecognized_links: warn
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Operations guide:
+      - Installation:
+          - operations/install.md
+          - operations/local-dev.md
+          - operations/capacity.md
+          - operations/compiler-image.md
+          - operations/openbao.md
+          - operations/escrow-reader.md
+      - Devices and enrollment:
+          - operations/autoinstall.md
+          - operations/local-admin.md
+      - Identity and login:
+          - operations/identity-sources.md
+          - operations/device-login.md
+          - operations/step-up.md
+      - Disk and revocation:
+          - operations/disk-recovery.md
+          - operations/revocation.md
+          - operations/revocation-acceptance.md
+      - Updates and inventory:
+          - operations/fleet.md
+          - operations/vulnerability-data.md
+      - Backup, restore and monitoring:
+          - operations/restore.md
+          - operations/monitoring.md
+          - operations/audit-bucket.md
+      - Releases:
+          - operations/agent-releases.md
+      - paddockctl and API tokens:
+          - operations/paddockctl.md
+          - operations/api-tokens.md
+  - Compliance:
+      - compliance/README.md
+      - compliance/iso27001-mapping.md
+      - compliance/residual-risks.md
+      - compliance/audit-codes.md
+      - compliance/privacy.md
+      - compliance/glossary-de.md
+      - compliance/third-party.md
+  - Architecture:
+      - architecture.md
+      - Decisions:
+          - adr/0001-go-for-server-agent-and-cli.md
+          - adr/0002-postgresql-with-row-level-security.md
+          - adr/0003-rabbitmq-and-valkey.md
+          - adr/0004-device-identity-and-protocol.md
+          - adr/0005-state-compilation-and-bundle-format.md
+          - adr/0006-key-management-with-openbao.md
+          - adr/0007-authentik-organization-mapping.md
+          - adr/0008-sudo-ownership.md
+          - adr/0009-fleet-integration-depth.md
+          - adr/0010-audit-pipeline.md
+          - adr/0011-configuration-source-of-truth.md
+          - adr/0012-agent-apply-engine.md
+          - adr/0013-version-compatibility.md
+          - adr/0014-mass-revocation-protection.md
+          - adr/0015-portal-frontend.md
+          - adr/0016-operations-backup-observability-deployment.md
+          - adr/0017-object-storage-product.md
+          - adr/0018-list-and-dialog-conventions.md
+          - adr/0019-login-component-himmelblau.md
+          - adr/0020-vulnerability-severity-source.md
+  - Changelog: changelog.md
